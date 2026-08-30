@@ -15,9 +15,9 @@ An emotional arc engine for music. Instead of static mood playlists, it asks *wh
 and where do you want to go* — then builds a path between the two.
 
 - **Custom audio ML** — 42-dimensional librosa feature vectors (MFCCs, chroma, spectral centroid, tempo) extracted via yt-dlp, classified with a RandomForest. Operates on raw audio, not lyrics, so it handles Telugu, Tamil, Hindi, Korean and English equally.
-- **Graph path planning** — modified Dijkstra over a 12-node emotion graph, with edge weights that adapt per user from skip and completion signals.
+- **Graph path planning** — a cached Floyd–Warshall all-pairs table over a 12-node emotion graph, read in O(1) per request rather than recomputed, with edge weights that adapt per user from skip and completion signals.
 - **Claude-powered mood parsing** — *"I'm burned out and want to decompress"* → structured source/target emotion pair.
-- Airflow pipeline, MLflow tracking, Redis-backed OAuth2 PKCE, 428 passing tests.
+- Airflow pipeline, MLflow tracking, Redis-backed OAuth2 PKCE, 568 passing tests.
 
 ### [code-intel](https://github.com/SuryaKiran434/code-intel) · Python, Milvus, tree-sitter
 RAG over your own codebase. Indexes a Git repo with AST-aware chunking, embeds with
